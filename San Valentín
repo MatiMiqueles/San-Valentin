@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Valentín 💘</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            background-image: url('https://i.imgur.com/XXXXX.jpg'); /* Cambia por un enlace correcto */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+            width: 350px;
+        }
+
+        h1 {
+            color: #ff4b5c;
+            font-size: 1.5em;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        button {
+            background: #ff4b5c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 5px;
+        }
+
+        button:hover {
+            background: #e63946;
+        }
+
+        .hearts {
+            position: absolute;
+            font-size: 24px;
+            color: #ff4b5c;
+            animation: fall 3s linear infinite;
+            will-change: transform;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .question-container {
+            display: none; /* Se ocultará hasta que el botón la active */
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .question img {
+            display: none;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+            h1 { font-size: 1.2em; }
+            p { font-size: 1em; }
+            button { padding: 8px 15px; font-size: 0.9em; }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 90%;
+                padding: 10px;
+            }
+            h1 { font-size: 1.1em; }
+            p { font-size: 0.9em; }
+            button { padding: 8px 12px; font-size: 0.8em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¡Feliz Día del Amor Mi Bebé Hermoso! 😍</h1>
+        <p>Eres la razón de mis sonrisas y felicidad. Te amo mucho, mi Ayecita. 💕</p>
+        <button onclick="showHearts()">Haz click para una sorpresa 🙊</button>
+        <button onclick="showQuestion()">Pregunta para mi gordita 😯</button>
+        
+        <div id="questionContainer" class="question-container">
+            <p id="question" class="question">
+                ¿Me amas mucho?  
+                <img id="heartGif" src="https://i.pinimg.com/originals/42/89/42/428942929326c43c7695f1c5be52136d.gif" alt="Corazón GIF" width="55">
+            </p>
+            <div>
+                <button id="yesBtn" onclick="answerYes()">Sí</button>
+                <button id="noBtn" onclick="answerNo()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showHearts() {
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.classList.add("hearts");
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = (Math.random() * 2 + 2) + "s";
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 3000);
+            }
+        }
+        
+        function showQuestion() {
+            let container = document.getElementById("questionContainer");
+            container.style.display = "flex";
+            document.getElementById("heartGif").style.display = "block";
+        }
+        
+        function answerYes() {
+            alert("¡Yo también te amo mucho, Mi amor, Mi vida, Mi Bebé, Mi porotito, Mi negrita hermosa, Mi princesa! 💖");
+        }
+        
+        function answerNo() {
+            alert("🥹 ¡Mardita! Sé que sí me amas mucho. 💕");
+        }
+    </script>
+</body>
+</html>
