@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Valentin 💘</title>
+    <style>
+        /* Aseguramos que el diseño sea flexible en diferentes tamaños de pantalla */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+
+            /* Imagen de fondo desde una URL */
+            background-image: url('https://imgur.com/a/uWQOxDy'); /* Cambia esta URL por la que tengas */
+            background-size: cover; /* Hace que la imagen cubra todo el fondo */
+            background-position: center center; /* Centra la imagen */
+            background-attachment: fixed; /* Hace que la imagen no se mueva al hacer scroll */
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente para que la imagen se vea detrás */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 90%; /* Limita el ancho al 90% en pantallas grandes */
+            width: 350px; /* Establece un ancho base para dispositivos pequeños */
+        }
+
+        h1 {
+            color: #ff4b5c;
+            font-size: 1.5em; /* Se adapta a pantallas pequeñas */
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        button {
+            background: #ff4b5c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 5px;
+        }
+
+        button:hover {
+            background: #e63946;
+        }
+
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            color: #ff4b5c;
+            animation: fall 3s linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .question-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .question img {
+            display: none;
+            margin: 0 auto;
+        }
+
+        /* Estilos Responsivos: Cambiar el tamaño de los elementos en pantallas más pequeñas */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.2em; /* Reduce el tamaño del texto */
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            button {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+
+            .hearts {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 90%;
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.1em;
+            }
+
+            p {
+                font-size: 0.9em;
+            }
+
+            button {
+                padding: 8px 12px;
+                font-size: 0.8em;
+            }
+
+            .hearts {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¡Feliz Día del Amor Mi Bebe Hermoso 😍!</h1>
+        <p>Eres la razón de mis sonrisas y felicidad. Te amo mucho Mi Ayecita. 💕</p>
+        <button onclick="showHearts()">Haz click para una sorpresa 🙊</button>
+        <button onclick="showQuestion()">Pregunta para mi gordita 😯</button>
+        
+        <div id="questionContainer" class="hidden question-container">
+            <p id="question" class="question hidden">
+                ¿Me amas mucho? 
+                <img id="heartGif" src="https://i.pinimg.com/originals/42/89/42/428942929326c43c7695f1c5be52136d.gif" alt="Corazón GIF" width="55">
+            </p>
+            <div>
+                <button id="yesBtn" class="hidden" onclick="answerYes()">Sí</button>
+                <button id="noBtn" class="hidden" onclick="answerNo()">No</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showHearts() {
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement("div");
+                heart.innerHTML = "❤️🦭🦖";
+                heart.classList.add("hearts");
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = (Math.random() * 2 + 2) + "s";
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 3000);
+            }
+        }
+        
+        function showQuestion() {
+            document.getElementById("questionContainer").style.display = "flex";
+            document.getElementById("heartGif").style.display = "block";
+            document.getElementById("question").classList.remove("hidden");
+            document.getElementById("yesBtn").style.display = "inline-block";
+            document.getElementById("noBtn").style.display = "inline-block";
+        }
+        
+        function answerYes() {
+            alert("¡Yo también te amo mucho, Mi amor, Mi vida, Mi Bebe, Mi porotito, Mi negrita hermosa, Mi princesa! 💖");
+        }
+        
+        function answerNo() {
+            alert("🥹¡Mardita! Sé que sí me amas mucho. 💕");
+        }
+    </script>
+</body>
+</html>
